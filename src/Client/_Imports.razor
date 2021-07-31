@@ -1,0 +1,62 @@
+﻿@*Libraries*@
+@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.AspNetCore.Components.WebAssembly.Http
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Identity;
+@using MudBlazor
+@using Blazored.LocalStorage;
+@using Blazored.FluentValidation
+
+@*Client Services*@
+@using CustomerManager.Client.Infrastructure.Managers.Identity.Account
+@using CustomerManager.Client.Infrastructure.Managers.Identity.Authentication
+@using CustomerManager.Client.Infrastructure.Managers.Identity.Roles
+@using CustomerManager.Client.Infrastructure.Managers.Identity.RoleClaims
+@using CustomerManager.Client.Infrastructure.Managers.Identity.Users
+@using CustomerManager.Client.Infrastructure.Managers.Preferences
+@using CustomerManager.Client.Infrastructure.Managers.Interceptors
+@using CustomerManager.Client.Infrastructure.Managers.Catalog.Product
+@using CustomerManager.Client.Infrastructure.Managers.Catalog.Brand
+@using CustomerManager.Client.Infrastructure.Managers.Dashboard
+@using CustomerManager.Client.Infrastructure.Managers.Communication
+@using CustomerManager.Client.Infrastructure.Managers.Audit
+@using CustomerManager.Client.Infrastructure.Managers.Misc.Document
+@using CustomerManager.Client.Infrastructure.Managers.Misc.DocumentType
+
+@*Shared Libraries*@
+@using CustomerManager.Shared.Constants.Permission
+@using CustomerManager.Client.Shared.Components
+
+@using CustomerManager.Client
+@using CustomerManager.Client.Shared
+@using CustomerManager.Client.Shared.Dialogs
+@using CustomerManager.Client.Infrastructure.Settings
+
+@using CustomerManager.Application.Requests.Identity
+
+@using CustomerManager.Client.Pages.Authentication
+
+@using CustomerManager.Client.Infrastructure.Authentication
+@using CustomerManager.Client.Extensions
+
+@attribute [Authorize]
+@inject IAuthenticationManager _authenticationManager
+@inject IAccountManager _accountManager
+@inject NavigationManager _navigationManager
+@inject BlazorHeroStateProvider _stateProvider
+@inject IAuthorizationService _authorizationService
+@inject ISnackbar _snackBar
+@inject IDialogService _dialogService
+@inject HttpClient _httpClient
+@inject IHttpInterceptorManager _interceptor
+@inject ClientPreferenceManager _clientPreferenceManager
+@inject IUserManager _userManager
+@inject ILocalStorageService _localStorage;
+@inject IJSRuntime _jsRuntime;
